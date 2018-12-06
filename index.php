@@ -1,13 +1,15 @@
 <?php
+
 namespace App;
-require './src/ConsecutivePrivmeSum.php';
-$time_start = microtime(true);
-$calc = new ConsecutivePrivmeSum(15000);
-print_r($calc->getConsecutiveSums());
-$time_end = microtime(true);
+require './src/ConsecutivePrimeSum.php';
 
-//dividing with 60 will give the execution time in minutes otherwise seconds
-$execution_time = ($time_end - $time_start);
+$timeStart = microtime(true);
 
-//execution time of the script
-echo '<b>Total Execution Time:</b> '.$execution_time.' secs';
+$calc = new ConsecutivePrimeSum(1000000);
+$result = $calc->getConsecutiveSums();
+
+$timeEnd = microtime(true);
+print_r($result);
+$executionTime = ($timeEnd - $timeStart);
+
+echo 'Total Execution Time: ' . $executionTime . ' secs';
